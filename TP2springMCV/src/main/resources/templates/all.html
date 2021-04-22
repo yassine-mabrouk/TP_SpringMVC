@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+ <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.6.0/css/bootstrap.min.css">
+ 
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<style>
+body {
+background-color: #ccc;
+}
+</style>
+<body>
+<div class="containner mt-5">
+
+</div>
+<div class="card">
+<div class="card-header  text-center">
+<h3  >liste des patients</h3>
+</div>
+
+<div class="card-body">
+
+<table class="table">
+<tr> 
+<th>Id </th>
+ <th>Nom </th>
+ <th>Date naissance </th>
+<th>score </th>
+<th>Malade </th>
+<th>Action </th>
+</tr>
+<tr th:each="p:${list}"> 
+	<td th:text="${p.id}" > </td>
+	<td th:text="${p.name}" > </td>
+	<td  th:text="${p.dateNaissance}" > </td>
+	<td th:text="${p.score}" > </td>
+	<td th:text="${p.malade}" > </td>
+	<td ><a onclick="return confirm('confirmer la supprission')" class="btn btn-danger" th:href="@{deletePatient(id=${p.id})}">Delete</a> </td>
+</tr>
+</table>
+
+
+</div>
+</div>
+
+</body>
+</html>
